@@ -1,0 +1,19 @@
+version: '3'
+services:
+  back-end:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8090:8090"
+    environment:
+      - DB_DRIVER_CLASS_NAME=com.mysql.cj.jdbc.Driver
+      - DB_URL=jdbc:mysql://server-sql.mysql.database.azure.com:3306/db_demo?useSSL=true
+      - DB_USERNAME=admin_azure
+      - DB_PASSWORD=WarAe*280101
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge
